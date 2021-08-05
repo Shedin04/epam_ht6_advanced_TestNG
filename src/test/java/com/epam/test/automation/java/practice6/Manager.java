@@ -18,7 +18,7 @@
         @Override
         public void setBonus(BigDecimal bonus) {
             if (bonus==null) throw new IllegalArgumentException();
-            if (bonus.compareTo(new BigDecimal(0)) <= 0) throw new IllegalArgumentException();
+            if (bonus.compareTo(new BigDecimal(0)) < 0) throw new IllegalArgumentException();
             if (quantity>100 && quantity<=150) bonus=bonus.add(new BigDecimal(500));
             if (quantity>150) bonus=bonus.add(new BigDecimal(1000));
             this.bonus = bonus;
