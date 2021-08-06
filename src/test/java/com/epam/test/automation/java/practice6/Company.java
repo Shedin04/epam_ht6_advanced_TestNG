@@ -7,8 +7,9 @@ import java.math.BigDecimal;
  * Implement code according to description of task.
  * </summary>
  */
-public class Company {
-    private Employee[] employees;
+public final class Company { // final - не может наследоваться
+    private static Employee[] employees; // static чтобы getInfo работал
+    static String temp = "test";
 
     public Company(int n) {
         employees = new Employee[n];
@@ -43,5 +44,9 @@ public class Company {
             }
         }
         return name;
+    }
+
+    public static void getInfo(int n){ //Метод типа static можно вызвать просто как Company.getInfo, не создавая объект
+        System.out.println("|Employee [" + n + "]: " + employees[n].getName() + " | To pay: " + employees[n].toPay() + temp);
     }
 }

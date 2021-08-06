@@ -7,7 +7,7 @@
      * Implement code according to description of task.
      * </summary>
      */
-    public class Manager extends Employee {
+    public class Manager extends Employee implements Info {
         private int quantity;
 
         public Manager(String name, BigDecimal salary, int clientAmount) {
@@ -22,5 +22,10 @@
             if (quantity>100 && quantity<=150) bonus=bonus.add(new BigDecimal(500));
             if (quantity>150) bonus=bonus.add(new BigDecimal(1000));
             this.bonus = bonus;
+        }
+
+        @Override
+        public void showInfo() {
+            System.out.println("Manager: " + getName() + " | Salary: " + getSalary() + " | Bonus: " + getBonus() + " | To pay: " +  toPay());
         }
     }

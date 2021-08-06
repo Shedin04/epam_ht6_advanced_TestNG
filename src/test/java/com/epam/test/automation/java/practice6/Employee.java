@@ -7,7 +7,7 @@ import java.math.BigDecimal;
  * Implement code according to description of task.
  * </summary>
  */
-public abstract class Employee {
+public abstract class Employee implements Info {
     private String name;
     private BigDecimal salary;
     protected BigDecimal bonus;
@@ -42,6 +42,11 @@ public abstract class Employee {
 
     public BigDecimal toPay()
     {
-        return getSalary().add(getBonus());
+        BigDecimal bonus = getBonus();
+        if (bonus == null) bonus=BigDecimal.ZERO;
+        return getSalary().add(bonus);
     }
+
+    @Override
+    public void showInfo(){}
 }

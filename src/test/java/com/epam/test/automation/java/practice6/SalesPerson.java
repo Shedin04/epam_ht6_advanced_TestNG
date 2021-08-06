@@ -7,7 +7,7 @@ import java.math.BigDecimal;
  * Implement code according to description of task.
  * </summary>
  */
-public class SalesPerson extends Employee {
+public class SalesPerson extends Employee implements Info {
     private int percent;
 
     public SalesPerson(String name, BigDecimal salary, int percent) {
@@ -22,5 +22,10 @@ public class SalesPerson extends Employee {
         if (percent>100 && percent<=200) bonus=bonus.multiply(new BigDecimal(2));
         if (percent >200) bonus=bonus.multiply(new BigDecimal(3));
         this.bonus = bonus;
+    }
+
+    @Override
+    public void showInfo() {
+        System.out.println("Saller: " + getName() + " | Salary: " + getSalary() + " | Bonus: " + getBonus() + " | To pay: " +  toPay());
     }
 }
